@@ -1,0 +1,63 @@
+spring:
+  data:
+    elasticsearch:
+      repositories:
+        enabled: true
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  datasource:
+    druid:
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+      driver-class-name: org.mariadb.jdbc.Driver
+      url: jdbc:mysql://**********:3306/douyu?characterEncoding=utf8&useUnicode=true&autoReconnect=true&failOverReadOnly=false&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=GMT%2B8
+      username: root
+      password: **********
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+    show-sql: true
+  application:
+    name: core
+  quartz:
+    scheduler-name: quartz_job
+    job-store-type: jdbc
+    jdbc:
+      initialize-schema: always
+logging:
+  file:
+    name: build/single.log
+  level:
+    org:
+      hibernate:
+        type:
+          descriptor:
+            sql:
+              BasicBinder: trace
+  logback:
+    rollingpolicy:
+      file-name-pattern: build/single-%d{yyyy-MM-dd}.%i.log
+      max-file-size: 20MB
+      max-history: 10
+      total-size-cap: 100MB
+danmu:
+  isEnable: true
+  url: wss://danmuproxy.douyu.com:8503
+  romeId: 10729343
+server:
+  port: 8090
+bot:
+#  loginId: **********
+  loginId: **********
+  loginPassword: **********
+  noticeGroupId: **********
+  enableElastic: **********
+  config:
+    - {regex: '((bd)|(绑定)|(bind))[ ,，]([^ ,，]*)[ ,，](\\d+)', target: 'nickNameSaveServiceImpl', white: true, admin: false}
+    - {regex: '((查)|(探)|(view))[ ,，]([^ ,，]*)', target: 'queryLiveInfoServiceImpl', white: false, admin: false}
+    - {regex: '((danmu)|(弹幕))[ ,，]([^ ,，]*)', target: 'danmuRunnerServiceImpl', white: false, admin: true}

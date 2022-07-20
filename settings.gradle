@@ -1,0 +1,19 @@
+pluginManagement {
+    repositories {
+        maven {
+            url 'https://maven.aliyun.com/repository/public/'
+        }
+        maven {
+            url 'https://maven.aliyun.com/repository/apache-snapshots/'
+        }
+        maven {
+            url 'https://maven.aliyun.com/repository/google/'
+        }
+        gradlePluginPortal()
+    }
+}
+
+rootProject.name = 'single-reband'
+include 'danmu-spring-boot-starter'
+include 'bot'
+include 'core'

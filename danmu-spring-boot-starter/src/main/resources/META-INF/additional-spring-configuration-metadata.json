@@ -1,0 +1,18 @@
+{
+  "properties": [
+    {
+      "name": "danmu.isEnable",
+      "type": "java.lang.String",
+      "description": "Description for danmu.isEnable."
+    },
+    {
+      "name": "danmu.romeId",
+      "type": "java.lang.String",
+      "description": "Description for danmu.romeId."
+    },
+    {
+      "name": "danmu.url",
+      "type": "java.lang.String",
+      "description": "Description for danmu.url."
+    }
+  ] }
