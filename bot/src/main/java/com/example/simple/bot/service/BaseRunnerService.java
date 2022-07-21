@@ -33,4 +33,15 @@ public interface BaseRunnerService<T> {
      * @return 处理结果
      */
     public ResultVo<T> doFriendOperation(String msg, T t);
+
+
+    /**
+     * 是否数据白名单
+     * @param msg 消息
+     * @param t 处理后实体类
+     * @return 校验结果
+     */
+    default boolean isInnerWhite(String msg, T t) {
+        return true;
+    }
 }

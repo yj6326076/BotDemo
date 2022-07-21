@@ -44,6 +44,21 @@ public class QueryLiveInfoServiceImpl implements BaseRunnerService<NicknameEntit
     GetLiveRomeInfo getLiveRomeInfo;
 
     /**
+     * 是否数据白名单
+     *
+     * @param msg    消息
+     * @param entity 处理后实体类
+     * @return 校验结果
+     */
+    @Override
+    public boolean isInnerWhite(String msg, NicknameEntity entity) {
+        if (!BotSymbol.WHITE.equals(entity.getRomeType())) {
+            return true;
+        }
+        return LocalHostContextUtils.getCurrentContract().isWhite();
+    }
+
+    /**
      * 通用格式化方法
      *
      * @param msg 待格式化消息

@@ -86,8 +86,11 @@ public class BotConfig {
                     return;
                 }
                 Object entity = baseRunner.parseMsg(msg);
-                ResultVo resultVo = baseRunner.doFriendOperation(msg, entity);
-                log.info("result is {}", JSONObject.toJSONString(resultVo));
+                boolean innerWhite = baseRunner.isInnerWhite(msg, entity);
+                if (innerWhite) {
+                    ResultVo resultVo = baseRunner.doFriendOperation(msg, entity);
+                    log.info("result is {}", JSONObject.toJSONString(resultVo));
+                }
                 LocalHostContextUtils.removeCurrentContract();
             });
             subscribe.dispose();
@@ -144,6 +147,15 @@ public class BotConfig {
             Pattern pattern = Pattern.compile(regex);
             Matcher matcher = pattern.matcher(msg);
             if (matcher.matches()) {
+                // 白名单群、用户只使用白名单功能
+                if (LocalHostContextUtils.getCurrentContract().isWhite() && !regexConfigVo.getWhite()) {
+                    return null;
+                }
+
+                // 管理员功能只允许管理员用户和群使用
+                if (regexConfigVo.getAdmin() && LocalHostContextUtils.getCurrentContract().isAdmin()) {
+                    return null;
+                }
                 return baseRunnerServiceMap.get(regexConfigVo.getTarget());
             }
         }

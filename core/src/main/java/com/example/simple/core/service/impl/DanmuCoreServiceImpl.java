@@ -13,6 +13,10 @@ import java.io.OutputStream;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * 弹幕上传和查询服务
+ * @author yj632
+ */
 @Service
 public class DanmuCoreServiceImpl implements DanmuService {
 

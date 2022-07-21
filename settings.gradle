@@ -13,7 +13,7 @@ pluginManagement {
     }
 }
 
-rootProject.name = 'single-reband'
+rootProject.name = 'BotDemo'
 include 'danmu-spring-boot-starter'
 include 'bot'
 include 'core'
