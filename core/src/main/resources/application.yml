@@ -58,6 +58,7 @@ bot:
   noticeGroupId: **********
   enableElastic: **********
   config:
-    - {regex: '((bd)|(绑定)|(bind))[ ,，]([^ ,，]*)[ ,，](\\d+)', target: 'nickNameSaveServiceImpl', white: true, admin: false}
-    - {regex: '((查)|(探)|(view))[ ,，]([^ ,，]*)', target: 'queryLiveInfoServiceImpl', white: false, admin: false}
-    - {regex: '((danmu)|(弹幕))[ ,，]([^ ,，]*)', target: 'danmuRunnerServiceImpl', white: false, admin: true}
+    - {regex: '((bd)|(绑定)|(bind))[ ,，]([^ ,，]*)[ ,，](\\d+)', target: 'nickNameSaveServiceImpl', white: true, admin: false, whiteInner: false}
+    - {regex: '((查)|(探)|(view))[ ,，]([^ ,，]*)', target: 'queryLiveInfoServiceImpl', white: false, admin: false, whiteInner: true}
+    - {regex: '((danmu)|(弹幕))[ ,，]([^ ,，]*)', target: 'danmuRunnerServiceImpl', white: false, admin: true, whiteInner: false}
+    - {regex: '不*直播', target: 'danmuRunnerServiceImpl', white: false, admin: true, whiteInner: false}

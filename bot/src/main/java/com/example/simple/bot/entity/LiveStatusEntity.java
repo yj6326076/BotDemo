@@ -6,7 +6,6 @@ import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -16,25 +15,20 @@ import java.util.Objects;
  * @author yj632
  */
 @Entity
-@Table
-@EntityListeners(AuditingEntityListener.class)
 @Getter
 @Setter
 @ToString
 @RequiredArgsConstructor
-public class UserRightEntity {
+public class LiveStatusEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
-    private Long userId;
+    private String status;
 
-    private String type;
-
-    private String roleType;
-
-    private Long createId;
+    @Temporal(TemporalType.DATE)
+    private Date liveDate;
 
     @CreatedBy
     private Long createdBy;
@@ -48,8 +42,6 @@ public class UserRightEntity {
     @LastModifiedDate
     private Date lastUpdateDate;
 
-    private Long lastUpdateId;
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -58,7 +50,7 @@ public class UserRightEntity {
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) {
             return false;
         }
-        UserRightEntity that = (UserRightEntity) o;
+        LiveStatusEntity that = (LiveStatusEntity) o;
         return id != null && Objects.equals(id, that.id);
     }
 
