@@ -14,4 +14,6 @@ public class RegexConfigVo {
     private Boolean white;
 
     private Boolean admin;
+
+    private Boolean whiteInner;
 }

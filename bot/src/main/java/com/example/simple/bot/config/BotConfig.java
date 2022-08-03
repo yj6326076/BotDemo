@@ -1,6 +1,7 @@
 package com.example.simple.bot.config;
 
 import com.alibaba.fastjson.JSONObject;
+import com.example.simple.bot.annotation.BotConsumer;
 import com.example.simple.bot.bo.CurrentContractVo;
 import com.example.simple.bot.bo.RegexConfigVo;
 import com.example.simple.bot.bo.ResultVo;
@@ -9,7 +10,6 @@ import com.example.simple.bot.entity.UserRightEntity;
 import com.example.simple.bot.property.BotProperties;
 import com.example.simple.bot.repository.UserRightRepository;
 import com.example.simple.bot.service.BaseRunnerService;
-import com.example.simple.bot.service.ContractService;
 import com.example.simple.bot.utils.LocalHostContextUtils;
 import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.disposables.Disposable;
@@ -29,6 +29,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -54,6 +55,25 @@ public class BotConfig {
 
     @Inject
     Map<String, BaseRunnerService> baseRunnerServiceMap;
+
+    @PostConstruct
+    public void preInit() {
+        baseRunnerServiceMap.forEach(
+                (k, v) -> {
+                    BotConsumer annotation = v.getClass().getAnnotation(BotConsumer.class);
+                    if (null == annotation) {
+                        return;
+                    }
+                    RegexConfigVo regexConfigVo = new RegexConfigVo();
+                    regexConfigVo.setRegex(annotation.regex());
+                    regexConfigVo.setAdmin(annotation.isAdmin());
+                    regexConfigVo.setWhite(annotation.isWhite());
+                    regexConfigVo.setWhiteInner(annotation.isInnerWhite());
+                    regexConfigVo.setTarget(k);
+                    botProperties.getConfig().add(regexConfigVo);
+                }
+        );
+    }
 
     @Bean("bot")
     public Bot getBot() {
@@ -142,7 +162,7 @@ public class BotConfig {
     }
 
     private BaseRunnerService getBaseRunner(String msg) {
-        for (RegexConfigVo regexConfigVo:botProperties.getConfig()) {
+        for (RegexConfigVo regexConfigVo : botProperties.getConfig()) {
             String regex = regexConfigVo.getRegex();
             Pattern pattern = Pattern.compile(regex);
             Matcher matcher = pattern.matcher(msg);
