@@ -1,9 +1,11 @@
 package com.example.simple.bot.service;
 
-import com.example.simple.bot.bo.ResultVo;
+import com.example.simple.common.vo.ResultVo;
 
 /**
- * 基础操作接口
+ * 机器人基础操作接口
+ * 负责进行各种基础操作最简单为执行方法
+ * 额外添加了基于查询数据的innerWhite方法后续优化数据筛选方法
  *
  * @author yj632
  */

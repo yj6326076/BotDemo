@@ -1,7 +1,7 @@
 package com.example.simple.bot.service;
 
-import com.example.simple.bot.bo.ResultVo;
 import com.example.simple.bot.bo.RomeInfoVo;
+import com.example.simple.common.vo.ResultVo;
 import org.apache.hc.core5.http.ParseException;
 
 import java.io.IOException;

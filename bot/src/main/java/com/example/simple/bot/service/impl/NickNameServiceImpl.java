@@ -1,12 +1,12 @@
 package com.example.simple.bot.service.impl;
 
-import com.example.simple.bot.bo.ResultVo;
 import com.example.simple.bot.bo.RomeInfoVo;
 import com.example.simple.bot.entity.NicknameEntity;
 import com.example.simple.bot.repository.NicknameRepository;
 import com.example.simple.bot.service.GetLiveRomeInfo;
 import com.example.simple.bot.service.NickNameService;
-import com.example.simple.bot.utils.ReturnUtils;
+import com.example.simple.common.utils.ReturnUtils;
+import com.example.simple.common.vo.ResultVo;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.hc.core5.http.ParseException;

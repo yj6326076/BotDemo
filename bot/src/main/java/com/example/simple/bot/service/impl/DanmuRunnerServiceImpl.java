@@ -1,12 +1,12 @@
 package com.example.simple.bot.service.impl;
 
 import com.example.simple.bot.bo.CurrentContractVo;
-import com.example.simple.bot.bo.ResultVo;
 import com.example.simple.bot.service.BaseRunnerService;
 import com.example.simple.bot.service.UploadFileService;
 import com.example.simple.bot.utils.LocalHostContextUtils;
-import com.example.simple.bot.utils.ReturnUtils;
+import com.example.simple.common.utils.ReturnUtils;
 import com.example.simple.bot.utils.SingleMessageUtils;
+import com.example.simple.common.vo.ResultVo;
 import lombok.extern.slf4j.Slf4j;
 import net.mamoe.mirai.contact.Group;
 import net.mamoe.mirai.event.events.FriendMessageEvent;

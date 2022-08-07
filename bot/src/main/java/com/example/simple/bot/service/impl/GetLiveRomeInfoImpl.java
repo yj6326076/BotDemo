@@ -1,10 +1,10 @@
 package com.example.simple.bot.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
-import com.example.simple.bot.bo.ResultVo;
 import com.example.simple.bot.bo.RomeInfoVo;
 import com.example.simple.bot.service.GetLiveRomeInfo;
-import com.example.simple.bot.utils.ReturnUtils;
+import com.example.simple.common.utils.ReturnUtils;
+import com.example.simple.common.vo.ResultVo;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;

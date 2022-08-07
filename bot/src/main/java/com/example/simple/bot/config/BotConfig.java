@@ -4,13 +4,13 @@ import com.alibaba.fastjson.JSONObject;
 import com.example.simple.bot.annotation.BotConsumer;
 import com.example.simple.bot.bo.CurrentContractVo;
 import com.example.simple.bot.bo.RegexConfigVo;
-import com.example.simple.bot.bo.ResultVo;
 import com.example.simple.bot.common.BotSymbol;
 import com.example.simple.bot.entity.UserRightEntity;
 import com.example.simple.bot.property.BotProperties;
 import com.example.simple.bot.repository.UserRightRepository;
 import com.example.simple.bot.service.BaseRunnerService;
 import com.example.simple.bot.utils.LocalHostContextUtils;
+import com.example.simple.common.vo.ResultVo;
 import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.disposables.Disposable;
 import lombok.extern.slf4j.Slf4j;
@@ -36,7 +36,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * 机器人配置
+ * 机器人配置基础类
+ * 负责机器人登陆和处理机器人消息两部分功能
  *
  * @author yj632
  */

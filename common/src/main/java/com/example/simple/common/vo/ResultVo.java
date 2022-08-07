@@ -1,4 +1,4 @@
-package com.example.simple.bot.bo;
+package com.example.simple.common.vo;
 
 import lombok.Data;
 

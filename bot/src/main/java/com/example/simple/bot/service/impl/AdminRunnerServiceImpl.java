@@ -1,11 +1,11 @@
 package com.example.simple.bot.service.impl;
 
 import com.example.simple.bot.annotation.BotConsumer;
-import com.example.simple.bot.bo.ResultVo;
 import com.example.simple.bot.entity.NicknameEntity;
 import com.example.simple.bot.repository.NicknameRepository;
 import com.example.simple.bot.service.BaseRunnerService;
 import com.example.simple.bot.utils.SingleMessageUtils;
+import com.example.simple.common.vo.ResultVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;

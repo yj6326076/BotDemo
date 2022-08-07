@@ -158,3 +158,13 @@ allprojects {
         }
     }
 }
+
+subprojects { p -> {
+    dependencies {
+        if (p != project(':common')) {
+            implementation(project(":common"))
+        }
+    }
+}
+
+}

@@ -1,4 +1,4 @@
-package com.example.simple.bot.utils;
+package com.example.simple.common.utils;
 
 import org.apache.commons.lang3.ArrayUtils;
 

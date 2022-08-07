@@ -4,6 +4,7 @@ import com.example.simple.danmu.entity.DamnEntity;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
@@ -15,7 +16,7 @@ import java.util.List;
  */
 @Repository
 @ConditionalOnBean(name = "danmuWebSocket")
-public interface DamnRepository extends JpaRepository<DamnEntity,Long> {
+public interface DamnRepository extends JpaRepository<DamnEntity,Long>, JpaSpecificationExecutor<DamnEntity> {
     /**
      * 查询所有所需时间的记录
      * @param createDate 开始时间

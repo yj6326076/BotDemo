@@ -1,6 +1,7 @@
 package com.example.simple.bot.utils;
 
-import com.example.simple.bot.bo.ResultVo;
+import com.example.simple.common.utils.ReturnUtils;
+import com.example.simple.common.vo.ResultVo;
 import com.example.simple.bot.entity.NicknameEntity;
 import org.apache.commons.lang3.math.NumberUtils;
 

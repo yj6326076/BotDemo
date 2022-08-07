@@ -1,6 +1,6 @@
-package com.example.simple.bot.utils;
+package com.example.simple.common.utils;
 
-import com.example.simple.bot.bo.ResultVo;
+import com.example.simple.common.vo.ResultVo;
 
 /**
  * 构造返回结果工具类

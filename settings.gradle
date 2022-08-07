@@ -17,3 +17,5 @@ rootProject.name = 'BotDemo'
 include 'danmu-spring-boot-starter'
 include 'bot'
 include 'core'
+include 'common'
+
